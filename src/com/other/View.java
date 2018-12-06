@@ -7,6 +7,7 @@ import tk.arktech.Number;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 public class View {
 
@@ -22,6 +23,8 @@ public class View {
 
     public void addPhoneNumber(String name, String number) throws Exception
     {
+        if(!name.matches("[\\p{L}\\s]*")) throw new Exception("nazwa zawiera niewłaściwe znaki");
+        if(!number.matches("\\d{9}")) throw new Exception("Numer telefonu został podany w niepoprawnym formacie");
         Scanner sc = new Scanner(name);
 
         Nazwa n = null;

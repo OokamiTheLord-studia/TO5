@@ -14,8 +14,9 @@ public class Nazwa extends NazwaFactory {
         }
     }
 
-    public boolean lastNameExists(String lastname)
-    {
+    public boolean lastNameExists(String lastname) throws Exception {
+        lastname = lastname.toLowerCase();
+//        if(!lastname.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
         if(nazwiska!=null)
         {
             return nazwiska.containsKey(lastname);
@@ -26,13 +27,17 @@ public class Nazwa extends NazwaFactory {
         }
     }
 
-    public Nazwa(String name) {
-        this.name = name;
+    public Nazwa(String name) throws Exception {
+
+        if(!name.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
+        this.name = name.toLowerCase();
+
     }
 
     public LastName getLastName(String lastname) throws Exception
     {
         nazwiskaMustExist();
+        lastname = lastname.toLowerCase();
         if(lastNameExists(lastname))
         {
             return nazwiska.get(lastname);
@@ -43,9 +48,10 @@ public class Nazwa extends NazwaFactory {
         }
     }
 
-    public void addLastName(String lastname, Number number)
-    {
+    public void addLastName(String lastname, Number number) throws Exception {
         nazwiskaMustExist();
+        lastname = lastname.toLowerCase();
+        if(!lastname.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
         if(lastNameExists(lastname))
         {
             nazwiska.get(lastname).addNumber(number);

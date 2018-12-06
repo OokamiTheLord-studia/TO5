@@ -9,8 +9,9 @@ public class LastName {
     private String lastname;
     private Set<Number> number = new HashSet<Number>();
 
-    public LastName(String lastname, Number phonenumber) {
-        this.lastname = lastname;
+    public LastName(String lastname, Number phonenumber) throws Exception {
+        if(!lastname.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
+        this.lastname = lastname.toLowerCase();
         this.number.add(phonenumber);
     }
 

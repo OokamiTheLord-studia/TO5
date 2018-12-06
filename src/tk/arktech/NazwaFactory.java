@@ -15,6 +15,7 @@ public class NazwaFactory {
 
     public final boolean exists(String nazwa)
     {
+        nazwa = nazwa.toLowerCase();
         if(nazwy!=null) {
             return nazwy.containsKey(nazwa);
         }
@@ -23,9 +24,10 @@ public class NazwaFactory {
             return false;
         }
     }
-    public final Nazwa getNazwa(String nazwa)
-    {
+    public final Nazwa getNazwa(String nazwa) throws Exception {
         hashMapMustExist();
+        nazwa = nazwa.toLowerCase();
+        if(!nazwa.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
         if(exists(nazwa))
         {
             return nazwy.get(nazwa);

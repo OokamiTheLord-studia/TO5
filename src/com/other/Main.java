@@ -12,7 +12,7 @@ public class Main {
 
             //TODO: Dodać lowercase na wszystko
             //TODO: Dodać validatory
-            v.addPhoneNumber("Marcin Janusz Janowski", "567890");
+            v.addPhoneNumber("Marcin Janusz Janowski", "791280966");
         } catch (Exception e) {
             e.printStackTrace();
         }
