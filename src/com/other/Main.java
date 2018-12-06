@@ -1,5 +1,9 @@
 package com.other;
 
+import tk.arktech.Number;
+
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,9 +14,9 @@ public class Main {
 
         try {
 
-            //TODO: Dodać lowercase na wszystko
-            //TODO: Dodać validatory
             v.addPhoneNumber("Marcin Janusz Janowski", "791280966");
+            Set<Number> nmb = v.getPhoneNumberSet("Marcin Janusz Janowski");
+            nmb.forEach((n) -> System.out.println(n.getNumber()));
         } catch (Exception e) {
             e.printStackTrace();
         }

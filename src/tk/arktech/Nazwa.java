@@ -14,7 +14,7 @@ public class Nazwa extends NazwaFactory {
         }
     }
 
-    public boolean lastNameExists(String lastname) throws Exception {
+    public boolean lastNameExists(String lastname)/* throws Exception */{
         lastname = lastname.toLowerCase();
 //        if(!lastname.matches("[\\p{L}]*")) throw new Exception("Niepoprawna nazwa");
         if(nazwiska!=null)
