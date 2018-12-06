@@ -32,7 +32,9 @@ public class NazwaFactory {
         }
         else
         {
-            return  nazwy.put(nazwa, new Nazwa(nazwa));
+            Nazwa n = new Nazwa(nazwa);
+            nazwy.put(nazwa, n);
+            return n;
         }
     }
 

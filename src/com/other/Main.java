@@ -4,8 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("hello");
 
+
+        View v = new View();
+
+        try {
+            v.addPhoneNumber("Marcin Janusz Janowski", "567890");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("hello");
     }
 
 
