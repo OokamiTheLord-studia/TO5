@@ -15,6 +15,16 @@ public class View {
     private NazwaFactory factory = new NazwaFactory();
 
 
+    public void ls()
+    {
+        ls("");
+    }
+
+    public void ls(String prompt)
+    {
+        factory.ls(prompt);
+    }
+
     public Set<Number> getPhoneNumberSet(String name) throws Exception {
         if(!name.matches("[\\p{L}\\s]*")) throw new Exception("nazwa zawiera niewłaściwe znaki");
 

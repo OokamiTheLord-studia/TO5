@@ -6,6 +6,28 @@ public class Nazwa extends NazwaFactory {
     protected String name;
     private HashMap<String, LastName> nazwiska = null;
 
+    @Override
+    public void ls() {
+        this.ls("");
+    }
+
+    @Override
+    public void ls(String prompt) {
+
+        if(nazwiska!=null) {
+            System.out.println(prompt + "--Nazwiska--");
+            nazwiska.forEach((k, v) -> {
+                System.out.println(prompt + k);
+                v.ls(prompt + "    ");
+            });
+        }
+        if(super.nazwy!=null)
+        {
+            System.out.println(prompt + "--Imiona--");
+            super.ls(prompt);
+        }
+    }
+
     protected void nazwiskaMustExist()
     {
         if (nazwiska == null)

@@ -3,7 +3,27 @@ package tk.arktech;
 import java.util.HashMap;
 
 public class NazwaFactory {
-    private HashMap<String, Nazwa> nazwy = null;
+    protected HashMap<String, Nazwa> nazwy = null;
+
+    public void ls()
+    {
+        ls("");
+    }
+
+    public void ls(String prompt)
+    {
+        if(nazwy!=null)
+        {
+            nazwy.forEach((k,v) -> {
+                System.out.println(prompt + k);
+                v.ls(prompt + "    ");
+            });
+        }
+        else
+        {
+            System.out.println(prompt + "null");
+        }
+    }
 
     protected final void hashMapMustExist()
     {
